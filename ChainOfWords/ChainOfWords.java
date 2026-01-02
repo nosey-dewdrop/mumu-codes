@@ -95,6 +95,7 @@ public class ChainOfWords{
                               else if(firstChar != lastChar){
                                     System.out.println("hayır! '" + lastChar + "' ile başlamalı!");
                               }
+                              
                               else{
                                     System.out.println("'" + str + "'böyle bir kelime yok!");
                               }
