@@ -1,3 +1,4 @@
+
 public class LongestCommonPrefix {
 
       public static String longestCommonPrefix(String[] strs) {
@@ -26,3 +27,5 @@ public class LongestCommonPrefix {
 
       }
 }
+
+// BAD RUNTIME

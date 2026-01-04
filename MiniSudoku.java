@@ -2,17 +2,23 @@ import java.util.*;
 
 public class MiniSudoku {
 
-    static int SIZE = 3;
+    static int SIZE = 9;
     static int[][] board = new int[SIZE][SIZE];
     static int emptySpaces = SIZE*SIZE;
     static int tries = 0;
+    static ArrayList<Integer> tryIDArray;
 
     public static void printBoard(){
+        System.out.println();
         for(int i = 0; i < SIZE; i++){
             for(int j = 0; j < SIZE; j++){
 
-                if(j < SIZE-1){
-                    System.out.print(board[i][j]+ "-");
+                if(j % 3 == 2){
+                    System.out.print(board[i][j]+ " | ");
+                }
+
+                else if(j < SIZE-1){
+                    System.out.print(board[i][j]+ " ");
                 }
 
                 else{
@@ -20,6 +26,9 @@ public class MiniSudoku {
                 }
             }
             System.out.println();
+            if(i % 3 == 2 && i < SIZE - 1){
+                    System.out.println("------*-------*-------*");
+            }
         }
     }
 
@@ -37,22 +46,27 @@ public class MiniSudoku {
         printBoard();
     }
 
-    public static boolean isValidOld(int number, int rows, int columns){
+    public static boolean isPlayed3x3(int number, int rows, int columns){
         for(int i = 0; i < SIZE; i++){
             for(int j = 0; j < SIZE; j++){
                 if(number == board[i][j]){
-                    System.out.println("cannot play this position due to rules!!");
-                    printBoard();
-                    return false;
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 
     public static boolean isValid(int number, int rows, int columns){
 
-        // rows sabit tutup columns değiştiriyorum.
+        int triesID = number*100 + rows*10 + columns;
+        tryIDArray.add(triesID);
+
+        if(isPlayed3x3(number, rows, columns)){
+            System.out.println("cannot play this position due to rules!!");
+            printBoard();
+            return false; 
+        }
         for(int i = 0; i < SIZE; i++){
             if(number == board[rows][i]){
                 return false;
@@ -108,8 +122,8 @@ public class MiniSudoku {
 
     public static void playSudokuAI(){
         Random rand = new Random();
-        int rows = rand.nextInt(3);      
-        int columns = rand.nextInt(3);      
+        int rows = rand.nextInt(9);      
+        int columns = rand.nextInt(9);      
         int number = rand.nextInt(9) + 1; 
 
         if(isValid(number, rows, columns)){
