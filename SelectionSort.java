@@ -7,23 +7,23 @@ public class SelectionSort {
 
       public static int[] selectionSort(int[] dataset){
 
-            for(int i = 0; i < dataset.length - i; i++){
+            for(int i = 0; i < dataset.length; i++){
 
                   int target = dataset[i];
-                  int targetIndex = 0;
-                  if(dataset[i] <= target){
-                        target = dataset[i];
-                        targetIndex = i;
+                  int targetIndex = i;
+
+                  for(int j= i; j < dataset.length; j++ ){
+                        if(dataset[j] < target){
+                              target = dataset[j];
+                              targetIndex = j;
+                        }
                   }
 
-                  System.out.printf("smallest value is %d in turn %d\n", target, i);
+                  dataset[targetIndex] = dataset[i];
+                  dataset[i] = target;
 
-                  int temp = dataset[i];
-                  dataset[i] = dataset[targetIndex];
-                  dataset[targetIndex] = temp;
             }
-            System.out.printf("smallest value is %d in turn %d\n", target, i);
-            
+      
             return dataset;
       }
       public static void main (String[] args){
