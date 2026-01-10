@@ -1,4 +1,4 @@
-package week1.build.Debug.GradeBook;
+package cpp_lectures.weeks.week1.build.Debug.GradeBook;
 import java.util.*;
 public class GradeBookJava{
 
