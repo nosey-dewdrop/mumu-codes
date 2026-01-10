@@ -1,0 +1,21 @@
+Istanbul,Asia
+Tokyo,Asia
+Cairo,Africa
+Paris,Europe
+London,Europe
+New York,America
+Sao Paulo,America
+Sydney,Australia
+Berlin,Europe
+Moscow,Europe
+Delhi,Asia
+Beijing,Asia
+Singapore,Asia
+Seoul,Asia
+Madrid,Europe
+Rome,Europe
+Los Angeles,America
+Mexico City,America
+Buenos Aires,America
+Lagos,Africa
+Johannesburg,Africa

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="profile-card">
+    
+    <h1>@{{ username }}</h1>
+
+    <p class="bio">{{ user.bio }}</p>
+
+    <p><b>Followers:</b> {{ user.followers | length }}</p>
+    <p><b>Following:</b> {{ user.following | length }}</p>
+
+    <h3>Your Reviews: </h3>
+    <ul>
+        {% for review in user.reviews %}
+            <li>{{ review.book }} – {{ review.rating }}★ – "{{ review.comment }}"</li>
+        {% endfor %}
+    </ul>
+
+    {% if current_user == username %}
+        <a class="edit-btn" href="{{ url_for('edit_profile') }}">Edit Profile</a>
+    {% endif %}
+
+</div>
+
+{% endblock %}

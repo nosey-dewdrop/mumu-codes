@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Edit Profile</h2>
+
+<form method="POST">
+    <textarea name="bio" rows="5" style="width:100%; padding:12px; border-radius:14px; border:1px solid #ddd;">{{ user.bio }}</textarea>
+    <br><br>
+    <button type="submit">Save Changes</button>
+</form>
+
+{% endblock %}

@@ -24,8 +24,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/damummyphus/moonchild.cpp/week6",
-      "program": "/Users/damummyphus/moonchild.cpp/week6/build/Debug/outDebug"
+      "cwd": "/Users/damummyphus/damla-leetcode-journey",
+      "program": "/Users/damummyphus/damla-leetcode-journey/build/Debug/outDebug"
     }
   ]
 }

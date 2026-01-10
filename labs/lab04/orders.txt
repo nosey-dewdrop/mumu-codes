@@ -1,0 +1,11 @@
+123,pinar organic milk,15.9
+123,uno whole wheat bread,6.5
+123,chicken wings,12.4
+123,Barilla Spaghetti,9.0
+
+456,broccoli,20.5
+456,uno lavas,8.35
+456,ground beef,46.0
+
+789,cherry tomatoes,9.99
+789,pepsi max,17.0

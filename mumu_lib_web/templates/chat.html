@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Chat with @{{ other }}</h2>
+
+<div class="chat-box">
+    {% for msg in messages %}
+        {% if msg.from == current %}
+            <div class="bubble me">{{ msg.text }}</div>
+        {% else %}
+            <div class="bubble them">{{ msg.text }}</div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<form method="POST" class="chat-form">
+    <input name="message" placeholder="Type a message..." autocomplete="off">
+    <button type="submit">Send</button>
+</form>
+
+{% endblock %}

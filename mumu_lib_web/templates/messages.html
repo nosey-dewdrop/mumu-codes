@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Messages</h1>
+
+<div class="msg-list">
+    {% for person, chat in inbox.items() %}
+        {% set last = chat[-1] if chat else None %}
+        <a class="msg-preview" href="{{ url_for('chat', other=person) }}">
+            <b>@{{ person }}</b><br>
+            {% if last %}
+                <span class="last-msg">{{ last.text }}</span>
+            {% else %}
+                <span class="last-msg">No messages yet</span>
+            {% endif %}
+        </a>
+    {% endfor %}
+</div>
+
+{% endblock %}
