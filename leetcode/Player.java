@@ -1,3 +1,4 @@
+package leetcode;
 class Player{
 
       private String name;
