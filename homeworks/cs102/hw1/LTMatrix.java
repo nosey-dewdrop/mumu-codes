@@ -31,8 +31,6 @@ public class LTMatrix extends Matrix {
                   LTBuilder();
                   return;
             }
-
-
       }
 
       /**
@@ -45,10 +43,10 @@ public class LTMatrix extends Matrix {
       }
 
       /**
-       * 
        * @param mat checking methods. it runs when the mat is not null and not 0x0 so we can put it as an input and work on it.
        * @return true if it is lower triangular, else false
        */
+
       public boolean isLowerTriangular(float[][] mat){
             for(int i = 0; i < mat.length; i++){
                   for(int j = i+1; j < mat.length; j++){
@@ -175,9 +173,9 @@ public class LTMatrix extends Matrix {
             float[][] result = new float[rows][cols];
             for (int i = 0; i < this.rows; i++) {
                   for (int j = 0; j <= i; j++) {
-                  result[i][j] = 0;
-                        for (int k = j; k <= i; k++) {  // ← BU EKSİK!
-                        result[i][j] += this.elements[i][k] * other.elements[k][j];
+                        result[i][j] = 0;
+                        for (int k = j; k <= i; k++) {  
+                              result[i][j] += this.elements[i][k] * other.elements[k][j];
                         }
                   }
             }

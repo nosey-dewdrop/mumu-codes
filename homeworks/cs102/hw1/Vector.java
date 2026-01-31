@@ -163,8 +163,6 @@ public class Vector implements Algebraic {
       }
 }
 
-//!NOTES
-
 /*
 - stringBuilder: strings are immutable, creating a new string in each iteration can result stack overflow.
 you might consider string builder object which is created in heap memory and mutable.

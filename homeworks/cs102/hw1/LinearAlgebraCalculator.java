@@ -13,12 +13,26 @@ public class LinearAlgebraCalculator {
 
         boolean proceed = true;
         while (proceed && current != null) {
+            
             displayMenu(current);
             int choice = getChoice();
 
             if (choice == 1) {
                 Algebraic result = current.negate();
-                System.out.println(result);
+                
+                // *assignment* format: current - result 
+                String[] currentLines = current.toString().split("\n");
+                String[] resultLines = result.toString().split("\n");
+                
+                for (int i = 0; i < currentLines.length; i++) {
+                    if (i == currentLines.length / 2) {
+                        System.out.println(" " + currentLines[i] + " -  " + resultLines[i]);
+                    } 
+                    else {
+                        System.out.println(" " + currentLines[i] + "    " + resultLines[i]);
+                    }
+                }
+                
                 current = result;
             } 
 
@@ -31,7 +45,36 @@ public class LinearAlgebraCalculator {
                     Algebraic result = current.add(other);
 
                     if (result != null) {
-                        System.out.println(result);
+                        // *assignment* format: current + other = result
+
+                        String[] currentLines = current.toString().split("\n");
+                        String[] otherLines = other.toString().split("\n");
+                        String[] resultLines = result.toString().split("\n");
+                        
+                        for (int i = 0; i < currentLines.length; i++) {
+                            System.out.print(currentLines[i]);
+                            
+                            if (i == currentLines.length / 2) {
+                                System.out.print(" + ");
+                            } 
+                            
+                            else {
+                                System.out.print("   ");
+                            }
+                            
+                            System.out.print(otherLines[i]);
+                            
+                            if (i == currentLines.length / 2) {
+                                System.out.print(" = ");
+                            } 
+                            
+                            else {
+                                System.out.print("   ");
+                            }
+                            
+                            System.out.println(resultLines[i]);
+                        }
+                        
                         current = result;
                     } 
 
@@ -50,7 +93,33 @@ public class LinearAlgebraCalculator {
                     Algebraic result = current.subtract(other);
 
                     if (result != null) {
-                        System.out.println(result);
+                        // *assignment* format: current - other = result
+                        String[] currentLines = current.toString().split("\n");
+                        String[] otherLines = other.toString().split("\n");
+                        String[] resultLines = result.toString().split("\n");
+                        
+                        for (int i = 0; i < currentLines.length; i++) {
+                            System.out.print(currentLines[i]);
+                            
+                            if (i == currentLines.length / 2) {
+                                System.out.print(" - ");
+                            } 
+                            else {
+                                System.out.print("   ");
+                            }
+                            
+                            System.out.print(otherLines[i]);
+                            
+                            if (i == currentLines.length / 2) {
+                                System.out.print(" = ");
+                            } 
+                            else {
+                                System.out.print("   ");
+                            }
+                            
+                            System.out.println(resultLines[i]);
+                        }
+                        
                         current = result;
                     } 
 
@@ -70,7 +139,50 @@ public class LinearAlgebraCalculator {
                     Algebraic result = current.multiply(other);
                     
                     if (result != null) {
-                        System.out.println(result);
+                        // *assignment* format: current * other = result
+                        String[] currentLines = current.toString().split("\n");
+                        String[] otherLines = other.toString().split("\n");
+                        String[] resultLines = result.toString().split("\n");
+                        
+                        int maxLines = Math.max(currentLines.length, Math.max(otherLines.length, resultLines.length));
+                        
+                        for (int i = 0; i < maxLines; i++) {
+                            if (i < currentLines.length) {
+                                System.out.print(currentLines[i]);
+                            } 
+                            else {
+                                System.out.print(" ");
+                            }
+                            
+                            if (i == currentLines.length / 2) {
+                                System.out.print(" * ");
+                            } 
+                            else {
+                                System.out.print("   ");
+                            }
+                            
+                            if (i < otherLines.length) {
+                                System.out.print(otherLines[i]);
+                            } 
+                            else {
+                                System.out.print(" ");
+                            }
+                            
+                            if (i == currentLines.length / 2) {
+                                System.out.print(" = ");
+                            } 
+                            else {
+                                System.out.print("   ");
+                            }
+                            
+                            if (i < resultLines.length) {
+                                System.out.println(resultLines[i]);
+                            } 
+                            else {
+                                System.out.println();
+                            }
+                        }
+                        
                         current = result;
                     } 
                     
@@ -91,7 +203,33 @@ public class LinearAlgebraCalculator {
                         Vector result = ((Vector) current).crossProduct((Vector) other);
                         
                         if (result != null) {
-                            System.out.println(result);
+                            // *assignment* format: v1 x v2 = result
+                            String[] currentLines = current.toString().split("\n");
+                            String[] otherLines = other.toString().split("\n");
+                            String[] resultLines = result.toString().split("\n");
+                            
+                            for (int i = 0; i < currentLines.length; i++) {
+                                System.out.print(currentLines[i]);
+                                
+                                if (i == 1) {
+                                    System.out.print(" x ");
+                                } 
+                                else {
+                                    System.out.print("   ");
+                                }
+                                
+                                System.out.print(otherLines[i]);
+                                
+                                if (i == 1) {
+                                    System.out.print(" = ");
+                                } 
+                                else {
+                                    System.out.print("   ");
+                                }
+                                
+                                System.out.println(resultLines[i]);
+                            }
+                            
                             current = result;
                         } 
 
@@ -99,18 +237,22 @@ public class LinearAlgebraCalculator {
                             System.out.println("Invalid operation");
                         }
                     }
+
+                    else {
+                            System.out.println("Invalid operation");
+                    }
                 } 
 
                 else if (current instanceof Matrix) {
                     Vector result = ((Matrix) current).determinant();
 
                     if (result != null) {
-                    System.out.println(result);
-                    current = result;
+                        System.out.println(result);
+                        current = result;
                     } 
                     
                     else {
-                    System.out.println("Invalid operation");
+                        System.out.println("Invalid operation");
                     }
                 }
             } 
@@ -137,7 +279,7 @@ public class LinearAlgebraCalculator {
             }
         }
 
-        scanner.close(); // why here, not in each method? or the class?
+        scanner.close();
     }
 
     private static Algebraic readAlgebraicObject() {
@@ -210,13 +352,3 @@ public class LinearAlgebraCalculator {
         return scanner.nextInt();
     }
 }
-
-    // - readAlgebraicObject() OK
-    // - displayMenu() OK   
-    // - getChoice() OK
-    // - performNegate()        
-    // - performAdd()           
-    // - performSubtract()    
-    // - performMultiply()      
-    // - performCrossOrDet()    
-    // - performCompare()       

@@ -19,7 +19,7 @@ public class Matrix implements Algebraic {
                   this.cols = 0;
                   this.elements = new float[0][0];
                   return;
-            } // DİREKT SG DE NEDEN açıkladın
+            }
             
             this.rows = mat.length;
             this.cols = mat[0].length;
@@ -137,7 +137,6 @@ public class Matrix implements Algebraic {
             
             return new Matrix(result);
       }
-
 
       private Vector multiplyVector(Vector vec) {
             if (this.cols != vec.getLength()) {
